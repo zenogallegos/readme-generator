@@ -9,16 +9,29 @@ function renderLicenseBadge(license) {
 
 // Create a function that returns the license link
 // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license != "None") {
+  return `In* [License] (#license) \n`;
+  }
+  return "";
+}
 
 // Create a function that returns the license section of README
 // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license != "none") {
+    return `## License
+    Licensed with ${license}`;
+  }
+  return "";
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
+  ${renderLicenseLink(data.license)}
+  ${renderLicenseSection(data.license)}
 ## Table of Contents
   * [Description](#description)
   * [Media](#media)
